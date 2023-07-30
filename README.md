@@ -26,7 +26,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/s
 ## Restart
 In case if `x-ui` has stopped working, run the following command to restart it.
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --europe --restart
+bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --europe --install
 ```
 
 # On Iran Server
