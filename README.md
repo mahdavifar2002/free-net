@@ -19,14 +19,14 @@ For God's sake.
 ## Insall
 Run the following command to install `x-ui` on Europe server. You will be prompted to enter a username, a password, and a panel port.
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --europe --restart
+bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --europe --install
 ```
 
 
 ## Restart
 In case if `x-ui` has stopped working, run the following command to restart it.
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --europe --install
+bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --europe --restart
 ```
 
 # On Iran Server
