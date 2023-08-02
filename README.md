@@ -35,19 +35,19 @@ bash <(curl -Ls https://bit.ly/3rLSq2B) --europe --restart
 ## Insall
 Run the following command command. Replace `1.1.1.1` with the IP of your Europe server.
 ```
-bash <(curl -Ls https://bit.ly/3rLSq2B) --iran --install --server 1.1.1.1
+bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --iran --install --server 1.1.1.1
 ```
 
 ## Update
 In case if you have changed IP of Europe server, run the following command command to update it. Replace `1.1.1.1` with the new IP of your Europe server.
 ```
-bash <(curl -Ls https://bit.ly/3rLSq2B) --iran --update --server 1.1.1.1
+bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --iran --update --server 1.1.1.1
 ```
 
 ## Restart
 After every reboot on Iran server, run the following command to activate packet forwarding.
 ```
-bash <(curl -Ls https://bit.ly/3rLSq2B) --iran --restart
+bash <(curl -Ls https://raw.githubusercontent.com/mahdavifar2002/free-net/main/script.sh) --iran --restart
 ```
 
 # Windows client
