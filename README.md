@@ -11,6 +11,7 @@ For God's sake.
 	- [Insall](#insall-1)
 	- [Update](#update)
 	- [Restart](#restart-1)
+- [Windows client](#windows-client)
 
 
 
@@ -48,3 +49,8 @@ After every reboot on Iran server, run the following command to activate packet 
 ```
 bash <(curl -Ls https://bit.ly/3rLSq2B) --iran --restart
 ```
+
+# Windows client
+Qv2ray: https://github.com/Qv2ray/Qv2ray/releases/download/v2.7.0/Qv2ray-v2.7.0-Windows-Installer.exe
+
+Xray‌: https://github.com/XTLS/Xray-core/releases/download/v1.7.2/Xray-windows-64.zip
