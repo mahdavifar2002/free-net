@@ -9,6 +9,21 @@ while [[ $# -gt 0 ]]; do
       shift # past argument
       shift # past value
       ;;
+    -p|--proxy)
+      PROXY="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -f|--family)
+      FAMILY="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -a|--alireza)
+      ALIREZA="$2"
+      shift # past argument
+      shift # past value
+      ;;
     --iran)
       IRAN=YES
       shift # past argument
@@ -77,6 +92,21 @@ if [ "$IRAN" == "YES" ]; then
 		sudo service iptables restart
 		# accept ssh --------------------------------
 		sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
+		# redirect proxy ports ----------------------
+		if [ -v PROXY ]; then
+			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 80,443 -j DNAT --to-destination $PROXY
+			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 445,777 -j DNAT --to-destination $PROXY:445
+			sudo iptables -t nat -A PREROUTING -p tcp --dport 8060 -j DNAT --to-destination $PROXY:8080
+		fi
+		# redirect family ports ---------------------
+		if [ -v FAMILY ]; then
+			sudo iptables -t nat -A PREROUTING -p tcp --dport 543 -j DNAT --to-destination $FAMILY:443
+			sudo iptables -t nat -A PREROUTING -p tcp --dport 8070 -j DNAT --to-destination $FAMILY:8080
+		fi
+		# redirect alireza ports --------------------
+		if [ -v ALIREZA ]; then
+			sudo iptables -t nat -A PREROUTING -p tcp --dport 12612 -j DNAT --to-destination $ALIREZA
+		fi
 		# redirect other ports ----------------------
 		sudo iptables -t nat -A PREROUTING -p all -j DNAT --to-destination $SERVER
 		# post-routing ------------------------------
@@ -109,4 +139,3 @@ if [ "$EUROPE" == "YES" ]; then
 		x-ui restart
 	fi
 fi
-
