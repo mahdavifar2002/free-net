@@ -87,8 +87,8 @@ if [ "$IRAN" == "YES" ]; then
 		sudo iptables -P INPUT ACCEPT
 		sudo iptables -P FORWARD ACCEPT
 		sudo iptables -P OUTPUT ACCEPT
-		sudo netfilter-persistent save
-		sudo netfilter-persistent reload
+		sudo netfilter-persistent save 1> /dev/null
+		sudo netfilter-persistent reload 1> /dev/null
 		sudo service iptables restart
 		# accept ssh --------------------------------
 		sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
@@ -112,15 +112,17 @@ if [ "$IRAN" == "YES" ]; then
 		# post-routing ------------------------------
 		sudo iptables -t nat -A POSTROUTING ! -o lo -j MASQUERADE
 		# save and reload ---------------------------
-		sudo netfilter-persistent save
-		sudo netfilter-persistent reload
+		sudo netfilter-persistent save 1> /dev/null
+		sudo netfilter-persistent reload 1> /dev/null
 		sudo service iptables restart
+  		echo "[INF] Iran server updated successfully"
 	fi
 
 	# Restarting iptables -----------------------------------------------------
 	if [ "$RESTART" == "YES" ]; then
-		sudo sysctl net.ipv4.ip_forward=1
+		sudo sysctl net.ipv4.ip_forward=1 1> /dev/null
 		sudo service iptables restart
+  		echo "[INF] Iran server restarted successfully"
 	fi
 fi
 
