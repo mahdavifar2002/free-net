@@ -120,7 +120,7 @@ if [ "$IRAN" == "YES" ]; then
 
 	# Restarting iptables -----------------------------------------------------
 	if [ "$RESTART" == "YES" ]; then
-		sudo sysctl net.ipv4.ip_forward=1 2> /dev/null
+		sudo sysctl net.ipv4.ip_forward=1 1> /dev/null
 		sudo service iptables restart
   		echo "[INF] Iran server restarted successfully"
 	fi
