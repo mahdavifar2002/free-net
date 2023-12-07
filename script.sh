@@ -98,6 +98,8 @@ if [ "$IRAN" == "YES" ]; then
 			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 23 -j DNAT --to-destination $PROXY:22
 			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 445,777 -j DNAT --to-destination $PROXY:445
 			sudo iptables -t nat -A PREROUTING -p tcp --dport 8060 -j DNAT --to-destination $PROXY:8080
+		else
+			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 80,443 -j ACCEPT
 		fi
 		# redirect family ports ---------------------
 		if [ -v FAMILY ]; then
