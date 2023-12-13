@@ -137,7 +137,7 @@ if [ "$EUROPE" == "YES" ]; then
 	# Installing x-ui ---------------------------------------------------------
 	if [ "$INSTALL" == "YES" ]; then
 		echo "Installing on Europe server..."
-		bash <(curl -Ls https://raw.githubusercontent.com/HexaSoftwareTech/x-ui/master/install.sh)
+		bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 		echo "Installation finished"
 	fi
 	
