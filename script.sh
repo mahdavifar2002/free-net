@@ -92,6 +92,12 @@ if [ "$IRAN" == "YES" ]; then
 		sudo service iptables restart
 		# accept ssh --------------------------------
 		sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
+		# redirect alireza ports --------------------
+		if [ -v ALIREZA ]; then
+			sudo iptables -t nat -A PREROUTING -p tcp --dport 12612 -j DNAT --to-destination $ALIREZA
+			sudo iptables -t nat -A PREROUTING -p tcp --dport 8050 -j DNAT --to-destination $ALIREZA:8080
+			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 1000:6000 -j DNAT --to-destination $ALIREZA
+		fi
 		# redirect proxy ports ----------------------
 		if [ -v PROXY ]; then
 			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 80,443 -j DNAT --to-destination $PROXY
@@ -105,10 +111,6 @@ if [ "$IRAN" == "YES" ]; then
 		if [ -v FAMILY ]; then
 			sudo iptables -t nat -A PREROUTING -p tcp --dport 543 -j DNAT --to-destination $FAMILY:443
 			sudo iptables -t nat -A PREROUTING -p tcp --dport 8070 -j DNAT --to-destination $FAMILY:8080
-		fi
-		# redirect alireza ports --------------------
-		if [ -v ALIREZA ]; then
-			sudo iptables -t nat -A PREROUTING -p tcp --dport 12612 -j DNAT --to-destination $ALIREZA
 		fi
 		# redirect other ports ----------------------
 		sudo iptables -t nat -A PREROUTING -p all -j DNAT --to-destination $SERVER
