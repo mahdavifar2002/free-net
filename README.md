@@ -8,6 +8,7 @@ For God's sake.
 	- [On Europe Server](#on-europe-server)
 		- [Insall](#insall)
 		- [Restart](#restart)
+		- [Proceed](#proceed)
 	- [On Iran Server](#on-iran-server)
 		- [Insall](#insall-1)
 		- [Update](#update)
@@ -33,18 +34,18 @@ In case if `x-ui` has stopped working, run the following command to restart it.
 bash <(curl -Ls https://bit.ly/3rLSq2B) --europe --restart
 ```
 
-## Proceed
-After installing, find the ip of the server (for instance, 1.1.1.1).
+### Proceed
+After installing, find the public IP of your server using the command `hostname -I` (for instance, 1.1.1.1).
 During installation, it asked you the port (for instance, 8080).
 
-Now go to the web browser and enter ip:port (for instance, 1.1.1.1:8080).
-- Note: It's important to go to ip:port using http not https.
+Now go to the web browser and enter http://ip:port (for instance, http://1.1.1.1:8080).
 
+- Note: It's important to go to ip:port using http not https.
 - A website is up, you have to login using the username and password you entered in the installation process.
-- Go to the "Inbounds"
-- Click on "Add Inbounds"
-- Enter the name of config in the "remark" section (The protol should be vless)
-- Create the config
+- Go to the "Inbounds" tab.
+- Click on "Add Inbounds".
+- Enter the name of config in the "remark" section. (The protocol should be vless.)
+- Create the config.
 - Now you can share the config link using direct link or QR code.
 
 
