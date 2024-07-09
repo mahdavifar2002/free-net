@@ -92,6 +92,9 @@ if [ "$IRAN" == "YES" ]; then
 			sudo iptables -t nat -A PREROUTING -p tcp --dport 8050 -j DNAT --to-destination $ALIREZA:8050
 			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 1000:6000 -j DNAT --to-destination $ALIREZA
 		fi
+		# accept low ports --------------------------
+		sudo iptables -t nat -A PREROUTING -p tcp --dport 8050 -j ACCEPT
+		sudo iptables -t nat -A PREROUTING -p tcp --dports 1000:6000 -j ACCEPT
 		# redirect proxy ports ----------------------
 		if [ -v PROXY ]; then
 			sudo iptables -t nat -A PREROUTING -p tcp -m multiport --dports 445,777 -j DNAT --to-destination $PROXY:445
